@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Projekt_Szkola.Models.Przedmiot>
+
+@{
+    ViewData["Title"] = "Przedmioty";
+}
+
+<h1>Przedmioty</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowy przedmiot</a>
+</p>
+
+<form asp-controller="Przedmiots" asp-action="Index">
+    <p>
+        Nazwa przedmiotu: <input type="text" name="SearchString">
+        <input type="submit" value="Szukaj" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th>
+                Dla klasy
+            </th>
+            <th>
+                Ilość godzin (tygodniowo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DlaKlasy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiczbaGodzinTygodniowo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PrzedmiotID">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.PrzedmiotID">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.PrzedmiotID">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

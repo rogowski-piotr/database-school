@@ -1,0 +1,37 @@
+﻿@model Projekt_Szkola.Models.Nauczyciel
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    </br><br>
+    <h4>Nauczyciel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+        <dt class="col-sm-2">
+            Ilość godzin (tygodniowo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SumaGodzinTygodniowo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.NauczycielID">Edytuj</a> |
+    <a asp-action="Index">Powrót do listy</a>
+</div>

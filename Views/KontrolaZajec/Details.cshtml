@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Projekt_Szkola.Models.Klasa>
+
+@{
+    ViewData["Title"] = "Kontrola zajęć";
+}
+
+<h1>Kontrola</h1>
+<h4>realizacji zajęć w klasie @ViewData["Klasa"]</h4>
+</br>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Zadeklarowane godziny
+            </th>
+            <th>
+                Wypracowane godziny
+            </th>
+            <th>
+                Zrealizowany plan
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @ViewData["Zadeklarowane"]
+            </td>
+            <td>
+                @ViewData["Zrealizowane"]
+            </td>
+            <td>
+                @ViewData["Zrealizowany plan"]
+            </td>
+        </tr>
+    </tbody>
+</table>
+<form asp-action="Delete">
+    <a asp-action="Index">Powrót do listy</a>
+</form>
+
+

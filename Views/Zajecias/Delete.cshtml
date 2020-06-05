@@ -1,0 +1,53 @@
+﻿@model Projekt_Szkola.Models.Zajecia
+
+@{
+    ViewData["Title"] = "Usuń zajęcia";
+}
+
+<h1>Usuń</h1>
+
+<h3>Czy napewno chcesz usunąć informację o tych zajęciach?</h3>
+</br></br>
+<div>
+    <h4>Zajecia</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.liczbaGodzinDzien)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.liczbaGodzinDzien)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nauczyciel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nauczyciel.Imie)
+            @Html.DisplayFor(model => model.Nauczyciel.Nazwisko)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Klasa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Klasa.KlasaID)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Przedmiot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Przedmiot.Nazwa)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ZajeciaID" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy</a>
+    </form>
+</div>

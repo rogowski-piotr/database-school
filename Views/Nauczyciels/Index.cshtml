@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Projekt_Szkola.Models.Nauczyciel>
+
+@{
+    ViewData["Title"] = "Nauczyciele";
+}
+
+<h1>Dane nauczycieli</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowego nauczyciela</a>
+</p>
+
+<form asp-controller="Nauczyciels" asp-action="Index">
+    <p>
+        Nazwisko: <input type="text" name="SearchString">
+        <input type="submit" value="Szukaj" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumaGodzinTygodniowo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumaGodzinTygodniowo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NauczycielID">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.NauczycielID">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.NauczycielID">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

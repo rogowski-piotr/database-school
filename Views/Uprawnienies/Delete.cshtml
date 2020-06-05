@@ -1,0 +1,37 @@
+﻿@model Projekt_Szkola.Models.Uprawnienie
+
+@{
+    ViewData["Title"] = "Usuń uprawnienie";
+}
+
+<h1>Usuń</h1>
+
+<h3>
+    Czy na pewno chcesz usunąć informacje o uprawnieniu dla @Html.DisplayFor(model => model.Nauczyciel.Imie) @Html.DisplayFor(model => model.Nauczyciel.Nazwisko)
+    do prowadzenia przedmiotu @Html.DisplayFor(model => model.UprawnienieNazwa)?
+</h3>
+<div>
+    </br></br>
+    <h4>Uprawnienie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nazwa uprawnienia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UprawnienieNazwa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nauczyciel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nauczyciel.NauczycielID)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="UprawnienieID" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy</a>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+﻿@model Projekt_Szkola.Models.Uprawnienie
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    </br></br>
+    <h4>Uprawnienie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nazwa uprawnienia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UprawnienieNazwa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nauczyciel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nauczyciel.NauczycielID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UprawnienieID">Edytuj</a> |
+    <a asp-action="Index">Powrót do listy</a>
+</div>

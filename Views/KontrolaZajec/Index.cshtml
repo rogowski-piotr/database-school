@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Projekt_Szkola.Models.Klasa>
+
+@{
+    ViewData["Title"] = "Kontrola zajęć";
+}
+
+<h1>Kontrola</h1>
+<h3>realizacji zajęć</h3>
+</br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KlasaID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sala)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nauczyciel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KlasaID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sala)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nauczyciel.Imie)
+                    @Html.DisplayFor(modelItem => item.Nauczyciel.Nazwisko)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.KlasaID">Sprawdź przebieg zajęć</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Projekt_Szkola.Models.Zajecia>
+
+@{
+    ViewData["Title"] = "Kontrola kwalifikacji";
+}
+
+<h1>Kontrola</h1>
+<h4>kwalifikacji do prowadzenia zajęć</h4>
+</br>
+
+<h5>@ViewData["Imie"] @ViewData["Nazwisko"]</h5>
+@if (ViewData["Status"] == "true")
+{
+    <h5> prowadził/a tylko zajęcia do których miał/a uprawnienia</h5>
+}
+else
+{
+<h5> dnia @ViewData["Data"] prowadził/a przedmiot @ViewData["NazwaPrzedmiotu"] do którego nie miał/a uprawnienia</h5>
+}
+
+<div>
+    <a asp-action="Index">Powrót do listy</a>
+</div>
+

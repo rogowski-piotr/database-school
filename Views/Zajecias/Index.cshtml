@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Projekt_Szkola.Models.Zajecia>
+
+@{
+    ViewData["Title"] = "Zajęcia";
+}
+
+<h1>Zajęcia</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowe zajęcia</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.liczbaGodzinDzien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nauczyciel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Klasa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Przedmiot)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.liczbaGodzinDzien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nauczyciel.Imie)
+                @Html.DisplayFor(modelItem => item.Nauczyciel.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Klasa.KlasaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Przedmiot.Nazwa)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ZajeciaID">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.ZajeciaID">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.ZajeciaID">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
