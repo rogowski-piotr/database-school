@@ -27,6 +27,38 @@ namespace Projekt_Szkola.Controllers
             return View(await projekt_SzkolaContext.ToListAsync());
         }
 
+        // GET: Zajecias/OrderedByData
+        public async Task<IActionResult> OrderedByData()
+        {
+            var projekt_SzkolaContext = _context.Zajecia.Include(z => z.Klasa).Include(z => z.Nauczyciel).Include(z => z.Przedmiot).OrderBy(z => z.Data);
+
+            return View("~/Views/Zajecias/Index.cshtml", await projekt_SzkolaContext.ToListAsync());
+        }
+
+        // GET: Zajecias/OrderedByNauczyciel
+        public async Task<IActionResult> OrderedByNauczyciel()
+        {
+            var projekt_SzkolaContext = _context.Zajecia.Include(z => z.Klasa).Include(z => z.Nauczyciel).Include(z => z.Przedmiot).OrderBy(z => z.NauczycielID);
+
+            return View("~/Views/Zajecias/Index.cshtml", await projekt_SzkolaContext.ToListAsync());
+        }
+
+        // GET: Zajecias/OrderedByPrzedmiot
+        public async Task<IActionResult> OrderedByPrzedmiot()
+        {
+            var projekt_SzkolaContext = _context.Zajecia.Include(z => z.Klasa).Include(z => z.Nauczyciel).Include(z => z.Przedmiot).OrderBy(z => z.PrzedmiotID);
+
+            return View("~/Views/Zajecias/Index.cshtml", await projekt_SzkolaContext.ToListAsync());
+        }
+
+        // GET: Zajecias/OrderedByKlasa
+        public async Task<IActionResult> OrderedByKlasa()
+        {
+            var projekt_SzkolaContext = _context.Zajecia.Include(z => z.Klasa).Include(z => z.Nauczyciel).Include(z => z.Przedmiot).OrderBy(z => z.KlasaID);
+
+            return View("~/Views/Zajecias/Index.cshtml", await projekt_SzkolaContext.ToListAsync());
+        }
+
         // GET: Zajecias/Details/5
         public async Task<IActionResult> Details(int? id)
         {

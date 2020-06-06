@@ -13,19 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Data)
+                <a asp-action="OrderedByData">@Html.DisplayNameFor(model => model.Data)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.liczbaGodzinDzien)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nauczyciel)
+                <a asp-action="OrderedByNauczyciel">@Html.DisplayNameFor(model => model.Nauczyciel)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Klasa)
+                <a asp-action="OrderedByKlasa">@Html.DisplayNameFor(model => model.Klasa)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Przedmiot)
+                <a asp-action="OrderedByPrzedmiot">@Html.DisplayNameFor(model => model.Przedmiot)</a>
             </th>
             <th></th>
         </tr>
